@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mou ❤️</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0; min-height:100vh; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    font-family:Georgia,serif;
+    background:radial-gradient(circle at center,#ffb6c9 0%,#ff6f91 38%,#8e2148 100%);
+  }
+  .card{
+    position:relative; z-index:2; text-align:center; color:white;
+    padding:45px 28px; width:min(90%,620px);
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:30px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+    box-shadow:0 20px 70px rgba(80,0,30,.35);
+    animation:pop 1.2s ease;
+  }
+  .heart{font-size:70px; animation:beat 1.1s infinite; display:inline-block}
+  h1{font-size:clamp(38px,9vw,76px); margin:12px 0; letter-spacing:2px; text-shadow:0 5px 20px rgba(80,0,30,.35)}
+  p{font-size:clamp(18px,4vw,25px); margin:14px 0; line-height:1.5}
+  .small{font-size:15px; opacity:.9; margin-top:25px}
+  .float{
+    position:absolute; bottom:-40px; font-size:25px;
+    animation:rise linear forwards; opacity:.8; z-index:1;
+  }
+  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.22)}}
+  @keyframes pop{0%{opacity:0;transform:scale(.7) translateY(30px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+  @keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}15%{opacity:.85}100%{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="heart">❤️</div>
+  <h1>I LOVE YOU JAAN</h1>
+  <p>Mou Parvin, this little surprise is just for you. 💕</p>
+  <p>You make ordinary moments feel special. ✨</p>
+  <div class="small">— With love, Inzamam ❤️</div>
+</div>
+
+<script>
+function heart(){
+  const e=document.createElement('div');
+  e.className='float';
+  e.textContent=['❤️','💖','💕','💗','✨'][Math.floor(Math.random()*5)];
+  e.style.left=Math.random()*100+'vw';
+  e.style.animationDuration=(4+Math.random()*5)+'s';
+  e.style.fontSize=(18+Math.random()*28)+'px';
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),9000);
+}
+setInterval(heart,350);
+</script>
+</body>
+</html>
